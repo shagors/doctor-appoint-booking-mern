@@ -72,6 +72,42 @@ const Navbar = () => {
             Create Account
           </button>
         )}
+        <img
+          src={assets.menu_icon}
+          alt="Menu"
+          className="w-6 md:hidden"
+          onClick={() => setShowMenu(true)}
+        />
+        {/* Mobile menu */}
+        <div
+          className={`${
+            showMenu ? "translate-x-0" : "translate-x-full"
+          } fixed inset-0 z-50 bg-white transition-transform duration-300 ease-in-out md:hidden`}
+        >
+          <div className="flex items-center justify-between px-5 py-6">
+            <img src={assets.logo} alt="Logo" className="w-36" />
+            <img
+              src={assets.cross_icon}
+              alt="Close"
+              onClick={() => setShowMenu(false)}
+              className="w-7 cursor-pointer"
+            />
+          </div>
+          <ul className="flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium">
+            <NavLink onClick={() => setShowMenu(false)} to="/">
+              <p className="px-4 py-2 rounded inline-block">HOME</p>
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to="/doctors">
+              <p className="px-4 py-2 rounded inline-block">ALL DOCTORS</p>
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to="/about">
+              <p className="px-4 py-2 rounded inline-block">ABOUT</p>
+            </NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to="/contact">
+              <p className="px-4 py-2 rounded inline-block">CONTACT</p>
+            </NavLink>
+          </ul>
+        </div>
       </div>
     </div>
   );
